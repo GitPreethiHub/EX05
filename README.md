@@ -102,16 +102,69 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+     compile the program in quartus software
+     view rtl logic.
+     create new universal program vwf for timing diagram
+        add nodes with node finder,give inputs.
+    
 
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+     /*
+     Program for flipflops in quartus using Verilog programming.
+     Developed by: Preethi M
+     RegisterNumber:  22000091
+     */
+     SR flip flop:
+
+     module flipflops(s,r,clock,q,qbar);
+     input s,r,clock;
+     output q,qbar;
+     wire x,y;
+     nand(x,s,clock);
+     nand(y,r,clock);
+     nand(q,x,qbar);
+     nand(qbar,y,q);
+     endmodule
+
+     D flip flop:
+
+     module flipflops(d,clock,q,qbar);
+     input d,clock;
+     output q,qbar;
+     assign dbar=~d;
+     wire x,y;
+     nand(x,d,clock);
+     nand(y,dbar,clock);
+     nand(q,x,qbar);
+     nand(qbar,y,q);
+     endmodule
+
+     JK flip flop:
+
+     module flipflops(j,k,clock,q,qbar);
+     input j,k,clock;
+     output q,qbar;
+     wire x,y;
+     nand(x,j,clock,qbar);
+     nand(y,k,clock,q);
+     nand(q,x,qbar);
+     nand(qbar,y,q);
+     endmodule
+
+     T flip flop:
+
+     module flipflops(t,clock,q,qbar);
+     input t,clock;
+     output q,qbar;
+     wire x,y;
+     nand(x,t,clock,qbar);
+     nand(y,t,clock,q);
+     nand(q,x,qbar);
+     nand(qbar,y,q);
+     endmodule
+
 
 
 
@@ -120,16 +173,20 @@ RegisterNumber:
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
-
-
-
-
+![SR-flipflop](/images/srflipflopRTL.png)
+![D-flipflop](/images/dflipflopRTL.png)
+![JK-flipflop](/images/jkflipflopRTL.png)
+![T-flipflop](/images/TflipflopRTL.png)
 
 
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+![SR-flipflop](/images/srflipflopSIM.png)
+![D-flipflop](/images/dflipflopSIM.png)
+![JK-flipflop](/images/JKflipflopsim.png)
+![T-flipflop](/images/TflipflopSIM.png)
 
 
 
@@ -138,3 +195,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+      Thus all flip flops are impemented and their fuctionalities are validated.
